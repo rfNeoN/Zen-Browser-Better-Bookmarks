@@ -1,28 +1,46 @@
+/* Hide folder icons */
 :root:has(#theme-No-Bookmark-Icon[theme-noBookmarkIcon-enabled="toolbar"]) {
-    #nav-bar #personal-bookmarks .toolbarbutton-icon {
-        display: none !important;
+    #personal-bookmarks {
+        & .toolbarbutton-icon[type="menu"] {
+            display: none !important;
+        }
+        & toolbarbutton.bookmark-item[type="menu"] {
+            padding: 7px !important;
+        }
     }
 }
 
+/* Hide sub folders icon */
 :root:has(#theme-No-Bookmark-Icon[theme-noBookmarkIcon-enabled="sub"]) {
-    .toolbar-menupopup .menu-iconic .menu-icon:not([srcset]) {
-        display: none !important;
+    #personal-bookmarks {
+        & .menu-icon:not([srcset]) {
+            display: none !important;
+        }
     }
 }
 
 :root:has(#theme-No-Bookmark-Icon[theme-noBookmarkIcon-enabled="both"]) {
-    .toolbar-menupopup .menu-iconic .menu-icon:not([srcset]),
-    #nav-bar #personal-bookmarks .toolbarbutton-icon {
-        display: none !important;
+    #personal-bookmarks {
+        & .toolbarbutton-icon[type="menu"] {
+            display: none !important;
+        }
+        & toolbarbutton.bookmark-item[type="menu"] {
+            padding: 7px !important;
+        }
+        & .menu-icon:not([srcset]) {
+            display: none !important;
+        }
     }
 }
 
+/* Hide  websites icon */
 @media (-moz-pref("theme.noBookmarkIcon.site_enabled")) {
     .toolbar-menupopup .menu-iconic .menu-icon[srcset] {
         display: none !important;
     }
 }
 
+/* Grayscale websites icon */
 @media (-moz-pref("theme.noBookmarkIcon.site_garayscale")) {
     .toolbar-menupopup .menu-iconic .menu-icon[srcset] {
         filter: grayscale(1);
