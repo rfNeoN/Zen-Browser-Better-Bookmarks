@@ -1,33 +1,39 @@
 [
     {
-        "property": "theme.noBookmarkIcon.enabled",
-        "label": "Hide The Icons From ",
+        "property": "theme.betterBookmarks.toolbarFolders",
+        "label": "Hide folder icons",
+        "type": "checkbox",
+        "defaultValue": true
+    },
+    {
+        "property": "theme.betterBookmarks.subFolders",
+        "label": "Hide subfolder icons",
+        "type": "checkbox",
+        "defaultValue": true
+    },
+    {
+        "property": "theme.betterBookmarks.websitesIcon",
+        "label": "Hide website icons",
         "type": "dropdown",
-        "defaultValue": "both",
+        "defaultValue": "toolbar",
         "options": [
             {
-                "label": "Toolbar Folders",
+                "label": "Only in Toolbar",
                 "value": "toolbar"
             },
             {
-                "label": "Sub Folders",
-                "value": "sub"
+                "label": "Only in Folders",
+                "value": "folders"
             },
             {
-                "label": "Every Where",
-                "value": "both"
+                "label": "All",
+                "value": "all"
             }
         ]
     },
     {
-        "property": "theme.noBookmarkIcon.site_enabled",
-        "label": "Also Hide Websites Icon",
-        "type": "checkbox",
-        "defaultValue": false
-    },
-    {
-        "property": "theme.noBookmarkIcon.site_garayscale",
-        "label": "Grayscale Website Icons",
+        "property": "theme.betterBookmarks.websitesIconGrayscale",
+        "label": "Grayscale website icons",
         "type": "checkbox",
         "defaultValue": false
     }

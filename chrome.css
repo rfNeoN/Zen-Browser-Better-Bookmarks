@@ -1,17 +1,12 @@
-/* Hide folder icons */
-:root:has(#theme-No-Bookmark-Icon[theme-noBookmarkIcon-enabled="toolbar"]) {
+@media (-moz-pref("theme.betterBookmarks.toolbarFolders")) {
     #personal-bookmarks {
         & .toolbarbutton-icon[type="menu"] {
             display: none !important;
         }
-        & toolbarbutton.bookmark-item[type="menu"] {
-            padding: 7px !important;
-        }
     }
 }
 
-/* Hide sub folders icon */
-:root:has(#theme-No-Bookmark-Icon[theme-noBookmarkIcon-enabled="sub"]) {
+@media (-moz-pref("theme.betterBookmarks.subFolders")) {
     #personal-bookmarks {
         & .menu-icon:not([srcset]) {
             display: none !important;
@@ -19,30 +14,30 @@
     }
 }
 
-:root:has(#theme-No-Bookmark-Icon[theme-noBookmarkIcon-enabled="both"]) {
-    #personal-bookmarks {
-        & .toolbarbutton-icon[type="menu"] {
-            display: none !important;
-        }
-        & toolbarbutton.bookmark-item[type="menu"] {
-            padding: 7px !important;
-        }
-        & .menu-icon:not([srcset]) {
-            display: none !important;
-        }
+@media (-moz-pref("theme.betterBookmarks.websitesIcon", "toolbar")) {
+    toolbarbutton.bookmark-item[image^="page-icon"] > image {
+        display: none !important;
     }
 }
 
-/* Hide  websites icon */
-@media (-moz-pref("theme.noBookmarkIcon.site_enabled")) {
+@media (-moz-pref("theme.betterBookmarks.websitesIcon", "folders")) {
     .toolbar-menupopup .menu-iconic .menu-icon[srcset] {
         display: none !important;
     }
 }
 
-/* Grayscale websites icon */
-@media (-moz-pref("theme.noBookmarkIcon.site_garayscale")) {
+@media (-moz-pref("theme.betterBookmarks.websitesIcon", "all")) {
     .toolbar-menupopup .menu-iconic .menu-icon[srcset] {
+        display: none !important;
+    }
+    toolbarbutton.bookmark-item[image^="page-icon"] > image {
+        display: none !important;
+    }
+}
+
+@media (-moz-pref("theme.betterBookmarks.websitesIconGrayscale")) {
+    .toolbar-menupopup .menu-iconic .menu-icon[srcset],
+    toolbarbutton.bookmark-item[image^="page-icon"] > image {
         filter: grayscale(1);
         mix-blend-mode: plus-lighter;
     }
