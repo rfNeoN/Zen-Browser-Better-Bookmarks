@@ -36,5 +36,25 @@
         "label": "Grayscale website icons",
         "type": "checkbox",
         "defaultValue": false
+    },
+    {
+        "property": "theme.betterBookmarks.toolbarAlignment",
+        "label": "Bookmarks toolbar alignment",
+        "type": "dropdown",
+        "defaultValue": "none",
+        "options": [
+            {
+                "label": "Left",
+                "value": "left"
+            },
+            {
+                "label": "Center",
+                "value": "center"
+            },
+            {
+                "label": "Right",
+                "value": "right"
+            }
+        ]
     }
 ]

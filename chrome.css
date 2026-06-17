@@ -42,3 +42,19 @@
         mix-blend-mode: plus-lighter;
     }
 }
+
+@media (-moz-pref("theme.betterBookmarks.toolbarAlignment", "left")) {
+    #PersonalToolbar #PlacesToolbarItems {
+        justify-content: left !important;
+    }
+}
+@media (-moz-pref("theme.betterBookmarks.toolbarAlignment", "center")) {
+    #PersonalToolbar #PlacesToolbarItems {
+        justify-content: center !important;
+    }
+}
+@media (-moz-pref("theme.betterBookmarks.toolbarAlignment", "right")) {
+    #PersonalToolbar #PlacesToolbarItems {
+        justify-content: right !important;
+    }
+}
