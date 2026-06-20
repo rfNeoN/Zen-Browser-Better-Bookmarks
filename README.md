@@ -8,13 +8,12 @@ After installing the mod, you get access to the following options:
 
 - Toggle folder and subfolder icons
 - Toggle website icons
-- Toggle folder expand arrow
+- Toggle folders expand arrow
 - Toolbar item alignment
 - Smooth popup animation
 - Hide "open all in tabs" button
-- Bookmarks popup background: follow user theme or set a custom color *(in progress)*
-- Bookmarks popup text color: follow user theme or set a custom color *(in progress)*
-- Custom text / SVG for separators *(in progress)*
+- Bookmarks popup background and text color: follow user theme or set a custom color
+- Bookmarks sidebar background color: follow user theme or set a custom color
 
 ![Preview Image](preview.png)
 
