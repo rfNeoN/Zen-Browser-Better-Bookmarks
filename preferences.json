@@ -1,63 +1,136 @@
 [
     {
-        "property": "theme.betterBookmarks.toolbarFolders",
-        "label": "Hide folder icons in toolbar",
-        "type": "checkbox",
-        "defaultValue": true
-    },
-    {
-        "property": "theme.betterBookmarks.subFolders",
-        "label": "Hide nested folder icons",
-        "type": "checkbox",
-        "defaultValue": true
-    },
-    {
-        "property": "theme.betterBookmarks.websiteIcons",
-        "label": "Hide website icons",
+        "property": "theme.betterBookmarks.folderIcons",
+        "label": "Hide Folder Icons",
         "type": "dropdown",
         "defaultValue": "toolbar",
         "options": [
             {
-                "label": "Toolbar only",
+                "label": "Toolbar Only",
                 "value": "toolbar"
             },
             {
-                "label": "Folders only",
+                "label": "Nested Folders",
+                "value": "nested"
+            },
+            {
+                "label": "All",
+                "value": "all"
+            }
+        ]
+    },
+    {
+        "property": "theme.betterBookmarks.websiteIcons",
+        "label": "Hide Website Icons",
+        "type": "dropdown",
+        "defaultValue": "toolbar",
+        "options": [
+            {
+                "label": "Toolbar Only",
+                "value": "toolbar"
+            },
+            {
+                "label": "Folders Only",
                 "value": "folders"
             },
             {
-                "label": "Everywhere",
+                "label": "All",
                 "value": "all"
             }
         ]
     },
     {
         "property": "theme.betterBookmarks.websiteIconsGrayscale",
-        "label": "Convert website icons to grayscale",
+        "label": "Convert Website Icons to Grayscale",
         "type": "checkbox",
         "defaultValue": false
     },
     {
-        "property": "theme.betterBookmarks.hideExpand",
-        "label": "Hide folder expand arrow (›)",
+        "property": "theme.betterBookmarks.hideExpandArrow",
+        "label": "Hide Folder Expand Arrow (›)",
         "type": "checkbox",
         "defaultValue": false
     },
     {
-        "property": "theme.betterBookmarks.hideOpenAll",
-        "label": "Hide (open all in tabs) button",
+        "property": "theme.betterBookmarks.popupBackgroundColor",
+        "label": "Popup Background Color",
+        "type": "dropdown",
+        "defaultValue": "none",
+        "options": [
+            {
+                "label": "Zen Primary",
+                "value": "primary"
+            },
+            {
+                "label": "Custom",
+                "value": "custom"
+            }
+        ]
+    },
+    {
+        "property": "theme.betterBookmarks.popupBackgroundColorValue",
+        "label": "Custom Background Color",
+        "type": "string",
+        "placeholder": "rgb(0,0,0)",
+        "defaultValue": "rgb(0,0,0)"
+    },
+    {
+        "property": "theme.betterBookmarks.applyPopupBackgroundToSidebar",
+        "label": "Apply Popup Background to Bookmarks Sidebar",
         "type": "checkbox",
         "defaultValue": false
     },
     {
-        "property": "theme.betterBookmarks.smoothPopups",
-        "label": "Popup open animation",
+        "property": "theme.betterBookmarks.hideSidebarSearch",
+        "label": "Hide Search Input in Bookmarks Sidebar",
+        "type": "checkbox",
+        "defaultValue": false
+    },
+    {
+        "property": "theme.betterBookmarks.popupTextColor",
+        "label": "Popup Text Color",
+        "type": "dropdown",
+        "defaultValue": "none",
+        "options": [
+            {
+                "label": "From Toolbar",
+                "value": "toolbar"
+            },
+            {
+                "label": "Custom",
+                "value": "custom"
+            }
+        ]
+    },
+    {
+        "property": "theme.betterBookmarks.popupTextColorValue",
+        "label": "Custom Text Color",
+        "type": "string",
+        "placeholder": "rgb(255,255,255)",
+        "defaultValue": "rgb(255,255,255)"
+    },
+    {
+        "property": "theme.betterBookmarks.popupMargin",
+        "label": "Popup Margin (Prevents Overlap)",
+        "type": "string",
+        "placeholder": "5px",
+        "defaultValue": "0px"
+    },
+    {
+        "property": "theme.betterBookmarks.hideOpenAllTabs",
+        "label": "Hide 'Open All in Tabs' Button",
+        "type": "checkbox",
+        "defaultValue": false
+    },
+    {
+        "property": "theme.betterBookmarks.smoothPopupAnimation",
+        "label": "Enable Smooth Popup Animation",
         "type": "checkbox",
         "defaultValue": false
     },
     {
         "property": "theme.betterBookmarks.toolbarAlignment",
-        "label": "Toolbar alignment",
+        "label": "Toolbar Alignment",
         "type": "dropdown",
         "defaultValue": "none",
         "options": [

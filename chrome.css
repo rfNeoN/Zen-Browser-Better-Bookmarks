@@ -1,42 +1,36 @@
-/* --------------------------------------------
-   ICON VISIBILITY
-   -------------------------------------------- */
-
-/* Hide folder icons in toolbar */
-@media (-moz-pref("theme.betterBookmarks.toolbarFolders")) {
+/* Hide toolbar folder icons */
+@media (-moz-pref("theme.betterBookmarks.folderIcons", "toolbar")),
+    (-moz-pref("theme.betterBookmarks.folderIcons", "all")) {
     #personal-bookmarks .toolbarbutton-icon[type="menu"] {
-        display: none;
+        display: none !important;
     }
 }
 
 /* Hide nested folder icons */
-@media (-moz-pref("theme.betterBookmarks.subFolders")) {
+@media (-moz-pref("theme.betterBookmarks.folderIcons", "nested")),
+    (-moz-pref("theme.betterBookmarks.folderIcons", "all")) {
     #personal-bookmarks .menu-icon:not([srcset]) {
-        display: none;
+        display: none !important;
     }
 }
 
-/* Hide website icons */
-@media (-moz-pref("theme.betterBookmarks.websiteIcons", "toolbar")) {
+/* Hide toolbar website icons */
+@media (-moz-pref("theme.betterBookmarks.websiteIcons", "toolbar")),
+    (-moz-pref("theme.betterBookmarks.websiteIcons", "all")) {
     toolbarbutton.bookmark-item[image^="page-icon"] > image {
-        display: none;
+        display: none !important;
     }
 }
 
+/* Hide website icons in folders */
 @media (-moz-pref("theme.betterBookmarks.websiteIcons", "folders")),
     (-moz-pref("theme.betterBookmarks.websiteIcons", "all")) {
     .toolbar-menupopup .menu-iconic .menu-icon[srcset] {
-        display: none;
+        display: none !important;
     }
 }
 
-@media (-moz-pref("theme.betterBookmarks.websiteIcons", "all")) {
-    toolbarbutton.bookmark-item[image^="page-icon"] > image {
-        display: none;
-    }
-}
-
-/* Grayscale website icons */
+/* Convert website icons to grayscale */
 @media (-moz-pref("theme.betterBookmarks.websiteIconsGrayscale")) {
     .toolbar-menupopup .menu-iconic .menu-icon[srcset],
     toolbarbutton.bookmark-item[image^="page-icon"] > image {
@@ -45,21 +39,111 @@
     }
 }
 
-/* --------------------------------------------
-   FOLDER EXPAND ARROW
-   -------------------------------------------- */
-
-@media (-moz-pref("theme.betterBookmarks.hideExpand")) {
+/* Hide folder expand arrow */
+@media (-moz-pref("theme.betterBookmarks.hideExpandArrow")) {
     menupopup > menu::after {
         display: none !important;
     }
 }
 
-/* --------------------------------------------
-   HIDE OPEN ALL TABS BUTTON AND THE SEPARATOR
-   -------------------------------------------- */
+/* Hide bookmark sidebar search input */
+@media (-moz-pref("theme.betterBookmarks.hideSidebarSearch")) {
+    #input {
+        &[type="search"] {
+            display: none;
+        }
+    }
+}
 
-@media (-moz-pref("theme.betterBookmarks.hideOpenAll")) {
+/* Apply primary color to popup background */
+@media (-moz-pref("theme.betterBookmarks.popupBackgroundColor", "primary")) {
+    toolbarbutton > menupopup.toolbar-menupopup {
+        --panel-background-color: color-mix(
+            in srgb,
+            var(--zen-primary-color) 90%,
+            #000 10%
+        ) !important;
+        --panel-border-color: color-mix(
+            in srgb,
+            var(--zen-primary-color) 80%,
+            #000 20%
+        ) !important;
+    }
+}
+
+/* Apply primary color to sidebar background */
+@media (-moz-pref("theme.betterBookmarks.applyPopupBackgroundToSidebar")) and (-moz-pref("theme.betterBookmarks.popupBackgroundColor", "primary")) {
+    #sidebar-box[sidebarcommand="viewBookmarksSidebar"] {
+        & #sidebar-header {
+            background-color: color-mix(
+                in srgb,
+                var(--zen-primary-color) 90%,
+                #000 10%
+            ) !important;
+        }
+        & .sidebar-browser-stack {
+            background-color: color-mix(
+                in srgb,
+                var(--zen-primary-color) 90%,
+                #000 10%
+            ) !important;
+        }
+    }
+}
+
+/* Apply custom color to popup background */
+@media (-moz-pref("theme.betterBookmarks.popupBackgroundColor", "custom")) {
+    toolbarbutton > menupopup.toolbar-menupopup {
+        --panel-background-color: var(
+            --theme-betterBookmarks-popupBackgroundColorValue
+        ) !important;
+        --panel-border-color: color-mix(
+            in srgb,
+            var(--theme-betterBookmarks-popupBackgroundColorValue) 80%,
+            #000 20%
+        ) !important;
+    }
+}
+
+/* Apply custom color to sidebar background */
+@media (-moz-pref("theme.betterBookmarks.applyPopupBackgroundToSidebar")) and (-moz-pref("theme.betterBookmarks.popupBackgroundColor", "custom")) {
+    #sidebar-box[sidebarcommand="viewBookmarksSidebar"] {
+        & #sidebar-header {
+            background-color: var(
+                --theme-betterBookmarks-popupBackgroundColorValue
+            ) !important;
+        }
+        & .sidebar-browser-stack {
+            background-color: var(
+                --theme-betterBookmarks-popupBackgroundColorValue
+            ) !important;
+        }
+    }
+}
+
+/* Use toolbar text color in popups */
+@media (-moz-pref("theme.betterBookmarks.popupTextColor", "toolbar")) {
+    toolbarbutton > menupopup.toolbar-menupopup label {
+        color: var(--toolbox-textcolor);
+    }
+}
+
+/* Use custom text color in popups */
+@media (-moz-pref("theme.betterBookmarks.popupTextColor", "custom")) {
+    toolbarbutton > menupopup.toolbar-menupopup label {
+        color: var(--theme-betterBookmarks-popupTextColorValue);
+    }
+}
+
+/* Set popup margin to prevent overlap */
+.toolbar-menupopup {
+    & menupopup {
+        margin-inline: var(--theme-betterBookmarks-popupMargin, 0px) !important;
+    }
+}
+
+/* Hide "Open all in tabs" button and separator */
+@media (-moz-pref("theme.betterBookmarks.hideOpenAllTabs")) {
     #personal-bookmarks menuseparator {
         display: none;
     }
@@ -68,17 +152,13 @@
     }
 }
 
-/* --------------------------------------------
-   POPUP ANIMATIONS
-   -------------------------------------------- */
-
-/* Base animation styles */
+/* Base popup animation styles */
 .bookmark-item menupopup {
     transition: 200ms;
 }
 
-/* Scale animation */
-@media (-moz-pref("theme.betterBookmarks.smoothPopups")) {
+/* Smooth scale animation for popups */
+@media (-moz-pref("theme.betterBookmarks.smoothPopupAnimation")) {
     .bookmark-item menupopup {
         scale: 0.95;
     }
@@ -88,16 +168,14 @@
     }
 }
 
-/* --------------------------------------------
-   TOOLBAR ALIGNMENT
-   -------------------------------------------- */
-
+/* Center toolbar alignment */
 @media (-moz-pref("theme.betterBookmarks.toolbarAlignment", "center")) {
     #PersonalToolbar #PlacesToolbarItems {
         justify-content: center !important;
     }
 }
 
+/* Right toolbar alignment */
 @media (-moz-pref("theme.betterBookmarks.toolbarAlignment", "right")) {
     #PersonalToolbar #PlacesToolbarItems {
         justify-content: flex-end !important;
