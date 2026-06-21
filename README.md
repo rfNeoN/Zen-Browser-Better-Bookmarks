@@ -9,6 +9,7 @@ After installing the mod, you get access to the following options:
 - Toggle folder and subfolder icons
 - Toggle website icons
 - Toggle folders expand arrow
+- Toggle folder and website icons in bookmarks sidebar
 - Toolbar item alignment
 - Smooth popup animation
 - Hide "open all in tabs" button
