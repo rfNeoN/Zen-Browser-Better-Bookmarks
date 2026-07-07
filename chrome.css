@@ -9,14 +9,14 @@
 /* Hide website icons in folders */
 @media (-moz-pref("theme.betterBookmarks.websiteIcons", "folders")),
     (-moz-pref("theme.betterBookmarks.websiteIcons", "all")) {
-    .toolbar-menupopup .menu-iconic .menu-icon[srcset] {
+    .toolbar-menupopup .menu-icon[srcset] {
         display: none !important;
     }
 }
 
 /* Convert website icons to grayscale */
 @media (-moz-pref("theme.betterBookmarks.websiteIconsGrayscale")) {
-    .toolbar-menupopup .menu-iconic .menu-icon[srcset],
+    .toolbar-menupopup .menu-icon[srcset],
     toolbarbutton.bookmark-item[image^="page-icon"] > image {
         filter: grayscale(1);
         mix-blend-mode: plus-lighter;
