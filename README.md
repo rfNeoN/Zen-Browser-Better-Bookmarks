@@ -24,7 +24,7 @@ After installing the mod, you get access to the following options:
 
 Step 1: Download the Files
 
-Download both `chrome.css` and `preferences.css` files to your computer.
+Download both `chrome.css` and `preferences.json` files to your computer.
 
 Step 2: Locate Your Zen Browser Profile
 
@@ -61,7 +61,7 @@ Step 4: Add the Theme Files
 
 - Navigate to `chrome/zen-themes` inside your profile folder (create these folders if they don't exist)
 - Create a new folder named Better-Bookmarks (must match the id from the JSON exactly)
-- Paste both downloaded files (chrome.css and preferences.css) into this new folder
+- Paste both downloaded files (`chrome.css` and `preferences.json`) into this new folder
 
 Step 5: Restart Zen Browser
 
