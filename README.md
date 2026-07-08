@@ -19,7 +19,8 @@ After installing the mod, you get access to the following options:
 
 ## Installation
 
-> This mod is not currently available in the Zen browser store. If you'd like to use it, please follow the manual installation steps below.
+> [!NOTE]
+> This mod is not currently available in the Zen browser store. If you'd like to use it, please follow the manual installation steps below or look at [zen docs](https://docs.zen-browser.app/).
 
 Step 1: Download the Files
 
@@ -53,7 +54,8 @@ Step 3: Register the Theme
     }
 }
 ```
-> JSON Structure Tip: If you're not comfortable editing JSON manually, use a JSON validator or formatter to ensure your syntax is correct.
+> [!TIP]
+> If you're not comfortable editing JSON manually, use a JSON validator or formatter to ensure your syntax is correct.
 
 Step 4: Add the Theme Files
 
