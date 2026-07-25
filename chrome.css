@@ -19,6 +19,13 @@
     .toolbar-menupopup .menu-icon[srcset],
     toolbarbutton.bookmark-item[image^="page-icon"] > image {
         filter: grayscale(1);
+    }
+}
+
+/* Brighter icons grayscale */
+@media (-moz-pref("theme.betterBookmarks.BrightWebsiteIcons")) {
+    .toolbar-menupopup .menu-icon[srcset],
+    toolbarbutton.bookmark-item[image^="page-icon"] > image {
         mix-blend-mode: plus-lighter;
     }
 }
@@ -68,11 +75,6 @@
             var(--zen-primary-color) 90%,
             #000 10%
         ) !important;
-        --panel-border-color: color-mix(
-            in srgb,
-            var(--zen-primary-color) 80%,
-            #000 20%
-        ) !important;
     }
 }
 
@@ -81,11 +83,6 @@
     toolbarbutton > menupopup.toolbar-menupopup {
         --panel-background-color: var(
             --theme-betterBookmarks-popupBackgroundColorValue
-        ) !important;
-        --panel-border-color: color-mix(
-            in srgb,
-            var(--theme-betterBookmarks-popupBackgroundColorValue) 80%,
-            #000 20%
         ) !important;
     }
 }
@@ -104,9 +101,20 @@
     }
 }
 
-/* Set popup margin to prevent overlap */
-.toolbar-menupopup menupopup {
-    margin-inline: var(--theme-betterBookmarks-popupMargin, 0px) !important;
+/* Apply primary color to popup border */
+@media (-moz-pref("theme.betterBookmarks.popupBorderColor", "primary")) {
+    toolbarbutton > menupopup.toolbar-menupopup {
+        --panel-border-color: var(--zen-primary-color) !important;
+    }
+}
+
+/* Apply custom color to popup border */
+@media (-moz-pref("theme.betterBookmarks.popupBorderColor", "custom")) {
+    toolbarbutton > menupopup.toolbar-menupopup {
+        --panel-border-color: var(
+            --theme-betterBookmarks-popupBorderColorValue
+        ) !important;
+    }
 }
 
 /* Base popup animation styles */
@@ -114,8 +122,21 @@
     transition: 200ms;
 }
 
+/* Smooth transform animation for popups */
+@media (-moz-pref("theme.betterBookmarks.smoothPopupAnimation", "transform")),
+    (-moz-pref("theme.betterBookmarks.smoothPopupAnimation", "both")) {
+    .bookmark-item menupopup {
+        transform: translateX(-7px);
+    }
+    menu[open] > menupopup,
+    toolbarbutton[open] > menupopup {
+        transform: translateX(0px);
+    }
+}
+
 /* Smooth scale animation for popups */
-@media (-moz-pref("theme.betterBookmarks.smoothPopupAnimation")) {
+@media (-moz-pref("theme.betterBookmarks.smoothPopupAnimation", "scale")),
+    (-moz-pref("theme.betterBookmarks.smoothPopupAnimation", "both")) {
     .bookmark-item menupopup {
         scale: 0.95;
     }
@@ -125,12 +146,18 @@
     }
 }
 
+/* Set popup margin to prevent overlap */
+.toolbar-menupopup menupopup {
+    margin-inline: var(--theme-betterBookmarks-popupMargin, 0px) !important;
+}
+
+
 /* Hide "Open all in tabs" button and separator */
 @media (-moz-pref("theme.betterBookmarks.hideOpenAllTabs")) {
     #personal-bookmarks menuseparator {
         display: none !important;
     }
-    #personal-bookmarks .openintabs-menuitem {
+    .openintabs-menuitem {
         display: none !important;
     }
 }
@@ -195,5 +222,77 @@
 @media (-moz-pref("theme.betterBookmarks.hideSidebarSearch")) {
     #input[type="search"] {
         display: none !important;
+    }
+}
+
+/* Hide bookmark menu 'view bookamrks sidebar' button */
+@media (-moz-pref("theme.betterBookmarks.hideBookmarkMenuSidebarButton")) {
+    #BMB_bookmarksPopup #BMB_viewBookmarksSidebar {
+        display: none;
+    }
+}
+
+/* Hide bookmark menu 'search bookmarks' button */
+@media (-moz-pref("theme.betterBookmarks.hideBookmarkMenuSearchButton")) {
+    #BMB_bookmarksPopup #BMB_searchBookmarks {
+        display: none;
+    }
+}
+
+/* Hide bookmark menu 'bookamrk toolbar' button */
+@media (-moz-pref("theme.betterBookmarks.hideBookmarkMenuToolbarButton")) {
+    #BMB_bookmarksPopup #BMB_bookmarksToolbar {
+        display: none;
+    }
+}
+
+/* Hide bookmark menu 'Other bookmarks' button */
+@media (-moz-pref("theme.betterBookmarks.hideBookmarkMenuOtherButton")) {
+    #BMB_bookmarksPopup #BMB_unsortedBookmarks {
+        display: none;
+    }
+}
+
+/* Hide Bookamrk menu top 'Manage bookmarks' button */
+@media (-moz-pref("theme.betterBookmarks.hideBookmarkMenuManageButton", "top")) {
+    #BMB_bookmarksPopup #BMB_bookmarksShowAllTop {
+        display: none;
+    }
+}
+
+/* Hide Bookamrk menu bottom 'Manage bookmarks' button */
+@media (-moz-pref("theme.betterBookmarks.hideBookmarkMenuManageButton", "top")),
+    (-moz-pref("theme.betterBookmarks.hideBookmarkMenuManageButton", "both")) {
+    #BMB_bookmarksPopup #BMB_bookmarksShowAllTop {
+        display: none;
+    }
+}
+
+/* Hide Bookamrk menu bottom 'Manage bookmarks' button */
+@media (-moz-pref("theme.betterBookmarks.hideBookmarkMenuManageButton", "bottom")),
+    (-moz-pref("theme.betterBookmarks.hideBookmarkMenuManageButton", "both")) {
+    #BMB_bookmarksPopup #BMB_bookmarksShowAll {
+        display: none;
+    }
+}
+
+/* Hide bookmark menu seperators */
+@media (-moz-pref("theme.betterBookmarks.hideBookmarkMenuSeparators")) {
+    #BMB_bookmarksPopup menuseparator {
+        display: none;
+    }
+}
+
+/* Hide bookmark menu folder icons */
+@media (-moz-pref("theme.betterBookmarks.hideBookmarkMenuFolderIcons")) {
+    #BMB_bookmarksPopup .bookmark-item > img:not([srcset]) {
+        display: none;
+    }
+}
+
+/* Hide bookmark menu website icons */
+@media (-moz-pref("theme.betterBookmarks.hideBookmarkMenuWebsiteIcons")) {
+    #BMB_bookmarksPopup .menu-icon[srcset] {
+        display: none;
     }
 }
