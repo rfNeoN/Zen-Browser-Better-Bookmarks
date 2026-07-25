@@ -1,30 +1,41 @@
-# Better Bookmarks
-
-**Better Bookmarks** overhauls the browser's bookmarks UI, giving you the freedom to customize it the way you like.
-
 ## What does this mod actually do?
 
 After installing the mod, you get access to the following options:
 
-- Toggle folder and subfolder icons
-- Toggle website icons
-- Toggle folders expand arrow
+**Icons**
+- Hide website icons (toolbar, sidebar, bookmarks menu)
+- Hide folder icons (toolbar, sidebar, bookmarks menu)
+- Grayscale or brighter website icons
+- Toggle folder expand arrow
+
+**Toolbar**
 - Toolbar item alignment
+
+**Popup**
 - Smooth popup animation
-- Hide "open all in tabs" button
-- Bookmarks popup background and text color: follow user theme or set a custom color
-- Bookmarks sidebar background color: follow user theme or set a custom color
+- Popup margin
+- Hide "Open All in Tabs" button
+- Background, border, and text color: follow user theme or set custom colors
+
+**Sidebar**
+- Apply popup background color to sidebar
+- Hide search box
+
+**Bookmarks Menu**
+- Hide sidebar, search, toolbar, other bookmarks, and manage buttons
+- Hide separators
+
+Here is a preview of how I customized mine
 
 ![Preview Image](preview.png)
 
 ## Installation
 
-> [!NOTE]
-> This mod is not currently available in the Zen browser store. If you'd like to use it, please follow the manual installation steps below or look at [zen docs](https://docs.zen-browser.app/).
+> This mod is not currently available in the Zen browser store. If you'd like to use it, please follow the manual installation steps below.
 
 Step 1: Download the Files
 
-Download both `chrome.css` and `preferences.json` files to your computer.
+Download both `chrome.css` and `preferences.css` files to your computer.
 
 Step 2: Locate Your Zen Browser Profile
 
@@ -54,14 +65,13 @@ Step 3: Register the Theme
     }
 }
 ```
-> [!TIP]
-> If you're not comfortable editing JSON manually, use a JSON validator or formatter to ensure your syntax is correct.
+> JSON Structure Tip: If you're not comfortable editing JSON manually, use a JSON validator or formatter to ensure your syntax is correct.
 
 Step 4: Add the Theme Files
 
 - Navigate to `chrome/zen-themes` inside your profile folder (create these folders if they don't exist)
 - Create a new folder named Better-Bookmarks (must match the id from the JSON exactly)
-- Paste both downloaded files (`chrome.css` and `preferences.json`) into this new folder
+- Paste both downloaded files (chrome.css and preferences.css) into this new folder
 
 Step 5: Restart Zen Browser
 
