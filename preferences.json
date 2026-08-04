@@ -163,8 +163,70 @@
         ]
     },
     {
-        "property": "theme.betterBookmarks.popupMargin",
-        "label": "Popup : Margin (May Disrupt Drag & Drop)",
+        "property": "theme.betterBookmarks.popupAnimDuration",
+        "label": "Popup : Animation duration",
+        "type": "string",
+        "placeholder": "250ms",
+        "defaultValue": "250ms"
+    },
+    {
+        "property": "theme.betterBookmarks.popupAnimSlideAxis",
+        "label": "Popup : Slide axis",
+        "type": "dropdown",
+        "defaultValue": "X",
+        "options": [
+            {
+                "label": "X",
+                "value": "X"
+            },
+            {
+                "label": "Y",
+                "value": "Y"
+            },
+            {
+                "label": "both",
+                "value": "both"
+            }
+        ]
+    },
+    {
+        "property": "theme.betterBookmarks.popupAnimSlideDistance",
+        "label": "Popup : Slide distance",
+        "type": "string",
+        "placeholder": "-7px or 7px",
+        "defaultValue": "-7px"
+    },
+    {
+        "property": "theme.betterBookmarks.popupAnimInitialScale",
+        "label": "Popup : Initial scale",
+        "type": "string",
+        "placeholder": "0.9",
+        "defaultValue": "0.925"
+    },
+    {
+        "property": "theme.betterBookmarks.popupMarginTop",
+        "label": "Popup : Margin top",
+        "type": "string",
+        "placeholder": "5px",
+        "defaultValue": "0px"
+    },
+    {
+        "property": "theme.betterBookmarks.popupMarginRight",
+        "label": "Popup : Margin right",
+        "type": "string",
+        "placeholder": "5px",
+        "defaultValue": "0px"
+    },
+    {
+        "property": "theme.betterBookmarks.popupMarginBottom",
+        "label": "Popup : Margin bottom",
+        "type": "string",
+        "placeholder": "5px",
+        "defaultValue": "0px"
+    },
+    {
+        "property": "theme.betterBookmarks.popupMarginLeft",
+        "label": "Popup : Margin left",
         "type": "string",
         "placeholder": "5px",
         "defaultValue": "0px"
@@ -258,6 +320,12 @@
     {
         "property": "theme.betterBookmarks.hideBookmarkMenuWebsiteIcons",
         "label": "Bookmarks Menu : Hide Website Icons",
+        "type": "checkbox",
+        "defaultValue": false
+    },
+    {
+        "property": "theme.betterBookmarks.hideBookmarkMenuAccel",
+        "label": "Bookmarks Menu : Hide shortcut text",
         "type": "checkbox",
         "defaultValue": false
     }
