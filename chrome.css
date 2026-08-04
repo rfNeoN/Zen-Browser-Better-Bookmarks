@@ -55,14 +55,14 @@
 
 /* Center toolbar alignment */
 @media (-moz-pref("theme.betterBookmarks.toolbarAlignment", "center")) {
-    #PersonalToolbar #PlacesToolbarItems {
+    #PersonalToolbar {
         justify-content: center !important;
     }
 }
 
 /* Right toolbar alignment */
 @media (-moz-pref("theme.betterBookmarks.toolbarAlignment", "right")) {
-    #PersonalToolbar #PlacesToolbarItems {
+    #PersonalToolbar {
         justify-content: flex-end !important;
     }
 }
@@ -117,16 +117,19 @@
     }
 }
 
-/* Base popup animation styles */
+/* Set popup animation duration */
 .bookmark-item menupopup {
-    transition: 200ms;
+    transition: var(--theme-betterBookmarks-popupAnimDuration, 250ms);
+    transition-behavior: allow-discrete;
 }
 
-/* Smooth transform animation for popups */
-@media (-moz-pref("theme.betterBookmarks.smoothPopupAnimation", "transform")),
-    (-moz-pref("theme.betterBookmarks.smoothPopupAnimation", "both")) {
+/* Smooth transform animation for popups (X Axis) */
+@media ((-moz-pref("theme.betterBookmarks.smoothPopupAnimation", "transform")) or
+ (-moz-pref("theme.betterBookmarks.smoothPopupAnimation", "both"))) and ((-moz-pref("theme.betterBookmarks.popupAnimSlideAxis", "X"))) {
     .bookmark-item menupopup {
-        transform: translateX(-7px);
+        transform: translateX(
+            var(--theme-betterBookmarks-popupAnimSlideDistance, -7px)
+        );
     }
     menu[open] > menupopup,
     toolbarbutton[open] > menupopup {
@@ -134,11 +137,39 @@
     }
 }
 
+/* Smooth transform animation for popups (Y Axis) */
+@media ((-moz-pref("theme.betterBookmarks.smoothPopupAnimation", "transform")) or
+ (-moz-pref("theme.betterBookmarks.smoothPopupAnimation", "both"))) and ((-moz-pref("theme.betterBookmarks.popupAnimSlideAxis", "Y"))) {
+    .bookmark-item menupopup {
+        transform: translateY(
+            var(--theme-betterBookmarks-popupAnimSlideDistance, -7px)
+        );
+    }
+    menu[open] > menupopup,
+    toolbarbutton[open] > menupopup {
+        transform: translateY(0px);
+    }
+}
+
+/* Smooth transform animation for popups (Both Axis) */
+@media (-moz-pref("theme.betterBookmarks.popupAnimSlideAxis", "both")) {
+    .bookmark-item menupopup {
+        transform: translate(
+            var(--theme-betterBookmarks-popupAnimSlideDistance, -7px),
+            var(--theme-betterBookmarks-popupAnimSlideDistance, -7px)
+        );
+    }
+    menu[open] > menupopup,
+    toolbarbutton[open] > menupopup {
+        transform: translate(0px, 0px);
+    }
+}
+
 /* Smooth scale animation for popups */
 @media (-moz-pref("theme.betterBookmarks.smoothPopupAnimation", "scale")),
     (-moz-pref("theme.betterBookmarks.smoothPopupAnimation", "both")) {
     .bookmark-item menupopup {
-        scale: 0.95;
+        scale: var(--theme-betterBookmarks-popupAnimInitialScale, 0.925);
     }
     menu[open] > menupopup,
     toolbarbutton[open] > menupopup {
@@ -147,10 +178,37 @@
 }
 
 /* Set popup margin to prevent overlap */
-.toolbar-menupopup menupopup {
-    margin-inline: var(--theme-betterBookmarks-popupMargin, 0px) !important;
+#BMB_bookmarksPopup menu menupopup,
+#personal-bookmarks menupopup {
+    margin-block-start: var(
+        --theme-betterBookmarks-popupMarginTop,
+        0px
+    ) !important;
 }
 
+#BMB_bookmarksPopup menu menupopup,
+#personal-bookmarks menupopup {
+    margin-inline-end: var(
+        --theme-betterBookmarks-popupMarginRight,
+        0px
+    ) !important;
+}
+
+#BMB_bookmarksPopup menu menupopup,
+#personal-bookmarks menupopup {
+    margin-block-end: var(
+        --theme-betterBookmarks-popupMarginBottom,
+        0px
+    ) !important;
+}
+
+#BMB_bookmarksPopup menu menupopup,
+#personal-bookmarks menupopup {
+    margin-inline-start: var(
+        --theme-betterBookmarks-popupMarginLeft,
+        0px
+    ) !important;
+}
 
 /* Hide "Open all in tabs" button and separator */
 @media (-moz-pref("theme.betterBookmarks.hideOpenAllTabs")) {
@@ -293,6 +351,13 @@
 /* Hide bookmark menu website icons */
 @media (-moz-pref("theme.betterBookmarks.hideBookmarkMenuWebsiteIcons")) {
     #BMB_bookmarksPopup .menu-icon[srcset] {
+        display: none;
+    }
+}
+
+/* Hide bookmark menu shorcut text like ( ctrl+shft+o for bookmark manager ) */
+@media (-moz-pref("theme.betterBookmarks.hideBookmarkMenuAccel")) {
+    .menu-accel {
         display: none;
     }
 }
