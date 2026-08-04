@@ -60,7 +60,7 @@ Step 3: Register the Theme
         "preferences": "local",
         "version": "1.0.0",
         "createdAt": "2026-06-14",
-        "updatedAt": "2026-07-25",
+        "updatedAt": "2026-08-04",
         "enabled": true
     }
 }
